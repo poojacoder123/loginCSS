@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sedan&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: "Lato", sans-serif;
+}
+
+.outer-box{
+    width:100vW;
+    height: 100vh;
+    background: linear-gradient(to top left , red, yellow);
+  
+}
+
+.inner-box{
+    width: 400px;
+    margin:0  auto;
+    border: 2px solid black;
+    position: relative;
+    top:40%;
+    transform: translateY(-50%);
+    padding: 20px 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px green;
+}
+.signup-header h1{
+    font-size: 2.5 rem;
+    color: #212121;
+}
+.signup-header p{
+font-size: 0.8 rem;
+color: #555;
+
+}
+
+.signup-body{
+    margin-top:20px;
+}
+.signup-body p{
+    margin:  10px 0px;
+}
+
+.signup-body label{
+  display: block;
+  font-weight: bold;
+}
+.signup-body p input{
+ padding:5px;
+ width: 100%;
+ font-size: 1rem;
+ margin-top: 5px;
+  }
+
+  .signup-body p input[type="submit"]{
+    border: none;
+    color: white;
+    background-color: orangered;
+    cursor: pointer;
+  }
+
+  .signup-body p input[type="submit"]:hover{
+    background-color: rgb(224, 79, 26);
+  }
+
+  footer{
+    text-align: center;;
+  }
