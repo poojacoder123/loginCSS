@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pooja Agrawal - Angular Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sedan:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color:black;
+            color: aliceblue;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 70px;
+            background-color: blueviolet;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li a{
+        text-decoration: none;
+        color: aliceblue;
+        }
+        nav ul li a:hover{
+        color: aqua;
+        font-size: 2rem;
+        }
+
+        nav li {
+            list-style: none;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .left {
+            font-size: 2rem;
+        }
+
+        .firstsection {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px;
+            margin-top: 50px;
+        }
+        .firstsection >div{
+            width: 40%;
+        }
+
+        .leftsection {
+            width: 50px;
+            /* background-color: brown; */
+        }
+        .leftsection img{
+            width:80%;
+           
+            margin-left: 200px;
+        }
+
+        .rightsection {
+            /* background-color: brown; */
+            font-size: 2.5rem;
+        
+        }
+        .name{
+            color: sienna;
+        }
+        #element{
+            color: blueviolet;
+        }
+        .secondsection{
+            max-width: 80vh;
+            margin: auto;
+            margin-top: 30px;
+
+        }
+        .secondsection h1{
+            font-size:2rem;
+        }
+        .text-grey{
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Pooja Agrawal Portfolio</div>
+            <div class="right">
+                <ul>
+                   <li> <a href="#"></a>
+                        Home
+                    </li>
+                    
+                    <li><a href="#"></a>
+                        About
+                    </li>
+                    
+                   <li> <a href="#"></a>
+                        Services
+                    </li>
+                   <li> <a href="#"></a>
+                        Project
+                    </li>
+                   <li> <a href="#"></a>
+                        Contact me
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+    <section class="firstsection" >
+        <div class="rightsection">Hello my name is <span class="name">Pooja Agrawal</span> 
+            <div id="element">and I am a
+            <div>passionate Web Developer (Angular)</div> </div>
+        </div>
+        <div class="leftsection">
+            <img src="./asset/free-women-web-dev.webp" alt="">
+        </div>
+    </section>
+    <hr>
+    <section class="secondsection">
+        <span class="text-grey">What i have work so far</span>
+   <h1>Past Experience</h1>
+    </section>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+   var typed = new Typed('#element', {
+      strings: ['<i>and</i> I am a Web Developer (Angular).', ],
+      typeSpeed: 50,
+    });
+    </script>
+</body>
+
+</html>
