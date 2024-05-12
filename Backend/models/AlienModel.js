@@ -4,21 +4,21 @@ const {mongoose, Schema} = require("mongoose");
 const userschema = new mongoose.Schema({
     employeeName: {
         type: String,
-        required: true
+        // required: true
     },
     contactNo: {
         type: String,
-        required: true
+        // required: true
     },
     emailId: {
         type: String,
         required: true,
-        unique: true
+        // unique: true
      
     },
     gender: {
         type: String,
-        required: true, 
+        // required: true, 
     },
     password: {
         type: String,
@@ -31,7 +31,7 @@ const userschema = new mongoose.Schema({
     },
     departmentId: {
         type:[Schema.Types.ObjectId],
-        required: true, 
+        // required: true, 
         ref: "Department"
     }
    

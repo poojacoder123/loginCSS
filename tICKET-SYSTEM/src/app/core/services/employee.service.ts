@@ -12,11 +12,11 @@ export class EmployeeService {
 
   constructor(private http : HttpClient) { }
 
-  login(object:Login): Observable<apiResponse> {
-    return this.http.post<apiResponse>(environment.API_URL + constant.API_END_POINT.LOGIN, object);
+  login(object:Login): Observable<EmployeeModel> {
+    return this.http.post<EmployeeModel>(environment.API_URL + constant.API_END_POINT.LOGIN, object);
   }
-  getEmployee(): Observable<EmployeeModel> {
-    return this.http.get<EmployeeModel>(environment.API_URL + constant.API_END_POINT.GET_EMPLOYEE);
+  getEmployee(): Observable<any> {
+    return this.http.get<any>(environment.API_URL + constant.API_END_POINT.GET_EMPLOYEE);
   }
 
 

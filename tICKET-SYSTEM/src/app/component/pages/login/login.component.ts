@@ -22,7 +22,7 @@ constructor(private employeeservice : EmployeeService,
   loginObj : Login = new Login();
 
   login(){
-  this.employeeservice.login(this.loginObj).subscribe((res:apiResponse)=>{
+  this.employeeservice.login(this.loginObj).subscribe((res:any)=>{
     console.log(res)
     // if(res.result){
       alert("login success");

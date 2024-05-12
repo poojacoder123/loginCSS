@@ -7,9 +7,7 @@ router.post("/", async(req,res,next)=>{
         if(req.body.roles && req.body.roles!==""){
             const newRole = new Role(req.body);
            await newRole.save();
-           res.json(newRole);
-
-         
+           res.json(newRole); 
         }
         else{
             return res.status(400).send("bad request")

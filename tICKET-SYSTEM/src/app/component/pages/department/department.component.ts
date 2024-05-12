@@ -5,17 +5,20 @@ import { Department, EmployeeModel } from '../../../core/models/APIMODELS';
 import { NAPipe } from '../../shared/pipe/na.pipe';
 import { EmployeeService } from '../../../core/services/employee.service';
 import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-department',
   standalone: true,
-  imports: [FormsModule, NAPipe],
+  imports: [FormsModule, NAPipe, CommonModule],
   templateUrl: './department.component.html',
   styleUrl: './department.component.scss'
 })
 export class DepartmentComponent implements OnInit {
   departmentList : Department[] = [];
-  employee$ : Observable<EmployeeModel[]> |undefined
+  employeeList : any[]= [];
+  departmentObj : Department = new Department();
+  // employee$ : Observable<EmployeeModel> |undefined
 constructor(
   private departmentService : DepartmentService,
   private employeeService : EmployeeService
@@ -25,8 +28,9 @@ constructor(
 ngOnInit(): void {
  this.loadDepartment();
  this.loadEmployee();
- this.employee$ = this.employeeService.getEmployee();
- console.log(this.employee$, "employee observable")
+ console.log(this.employeeList)
+//  this.employee$ = this.employeeService.getEmployee();
+//  console.log(this.employee$, "employee observable")
 }
 
 loadDepartment(){
@@ -38,6 +42,15 @@ loadDepartment(){
 loadEmployee(){
   this.employeeService.getEmployee().subscribe((res)=>{
     console.log(res)
+    this.employeeList = res;
+
   })
+}
+addDepartment(){
+  console.log(this.departmentObj)
+this.departmentService.addDepartment(this.departmentObj).subscribe((res)=>{
+  // console.log(res);
+  alert("department added")
+})
 }
 }

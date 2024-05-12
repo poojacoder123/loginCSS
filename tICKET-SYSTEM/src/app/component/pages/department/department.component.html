@@ -17,44 +17,46 @@
                         </thead>
                         <tbody>
                             @for (item of departmentList; track $index) {
-                                <tr >
-                                    <td  class="text-center"></td>
-                                 <td  class="text-center">{{item.departmentName}}</td>
-                                 <td  class="text-center">{{item.departmentHead | nA}}</td>
-                                 <td class="text-center"><button class="btn btn-sm btn-success me-3">Edit</button> <button class="btn btn-sm btn-danger">Danger</button></td>
-                                </tr>
+                            <tr>
+                                <td class="text-center"></td>
+                                <td class="text-center">{{item.departmentName}}</td>
+                                <td class="text-center">{{item.departmentHead | nA}}</td>
+                                <td class="text-center"><button class="btn btn-sm btn-success me-3">Edit</button>
+                                    <button class="btn btn-sm btn-danger">Delete</button></td>
+                            </tr>
                             }
-                           
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
         <!-- <div class="row mt-4"> -->
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header bg-success">
-                        Create New Department
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-success">
+                    Create New Department
+                </div>
+                <div class="card-body">
+                    <div class="col-12">
+                        <label for="departmentName" >Department Name</label>
+                        <input type="text" id="departmentName" name="departmentName"
+                        [(ngModel)]="departmentObj.departmentName" class="form-control">
+                        <label for="departmentHead" class=" mt-4">Select Department Head</label>
+                        <select name="departmentHead" id="departmentHead" [(ngModel)]="departmentObj.departmentHead"
+                            id="" class="form-select">
+                            <option *ngFor="let emp of employeeList" [value]="emp.employeeName">{{emp.employeeName}}</option>
+                        </select>
                     </div>
-                    <div class="card-body">
-                        <div class="col-12">
-                            <label for="">Select Department Head</label>
-                            <select name="" id="" class="form-select">
-                                <option value=""></option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-center m-3">
-                            <button class="btn btn-secondary me-2">Reset</button>
-                            <button class="btn btn-success">Save</button>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center m-3">
+                        <button class="btn btn-secondary me-2">Reset</button>
+                        <button class="btn btn-success" (click)="addDepartment()">Save</button>
                     </div>
                 </div>
             </div>
+        </div>
         <!-- </div> -->
     </div>
 </div>
-
-
-
