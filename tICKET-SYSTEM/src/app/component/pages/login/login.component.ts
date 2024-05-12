@@ -23,11 +23,13 @@ constructor(private employeeservice : EmployeeService,
 
   login(){
   this.employeeservice.login(this.loginObj).subscribe((res:apiResponse)=>{
+    console.log(res)
     // if(res.result){
       alert("login success");
-      // localStorage.setItem("ticketdata", JSON.stringify(res.data));
-      // this.router.navigate(["/dashboard"])
-  console.log(res)
+      localStorage.setItem("ticketdata", JSON.stringify(res));
+      this.router.navigate(["/dashboard"])
+  // }
+  // console.log(res)
   } )
   }
 }

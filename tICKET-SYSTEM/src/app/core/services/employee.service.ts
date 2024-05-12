@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Login, apiResponse } from '../models/APIMODELS';
+import { EmployeeModel, Login, apiResponse } from '../models/APIMODELS';
 import { environment } from '../../../environments/environment.development';
 import { Observable } from 'rxjs';
 import { constant } from '../constant/constant';
@@ -15,5 +15,10 @@ export class EmployeeService {
   login(object:Login): Observable<apiResponse> {
     return this.http.post<apiResponse>(environment.API_URL + constant.API_END_POINT.LOGIN, object);
   }
+  getEmployee(): Observable<EmployeeModel> {
+    return this.http.get<EmployeeModel>(environment.API_URL + constant.API_END_POINT.GET_EMPLOYEE);
+  }
+
+
 
 }

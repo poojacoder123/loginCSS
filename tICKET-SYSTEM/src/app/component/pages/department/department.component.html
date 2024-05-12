@@ -1,1 +1,60 @@
-<p>department works!</p>
+<div class="container-fluid">
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-success">
+                    Department list
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Sr no.</th>
+                                <th class="text-center">Department Name</th>
+                                <th class="text-center">Deparment Head</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (item of departmentList; track $index) {
+                                <tr >
+                                    <td  class="text-center"></td>
+                                 <td  class="text-center">{{item.departmentName}}</td>
+                                 <td  class="text-center">{{item.departmentHead | nA}}</td>
+                                 <td class="text-center"><button class="btn btn-sm btn-success me-3">Edit</button> <button class="btn btn-sm btn-danger">Danger</button></td>
+                                </tr>
+                            }
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row mt-4"> -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-success">
+                        Create New Department
+                    </div>
+                    <div class="card-body">
+                        <div class="col-12">
+                            <label for="">Select Department Head</label>
+                            <select name="" id="" class="form-select">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center m-3">
+                            <button class="btn btn-secondary me-2">Reset</button>
+                            <button class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+    </div>
+</div>
+
+
+

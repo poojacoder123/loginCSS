@@ -12,18 +12,18 @@ export class DepartmentService {
 
   constructor(private http: HttpClient) { }
 
-  getAllDepartment(): Observable<apiResponse> {
-    return this.http.get<apiResponse>(environment.API_URL + constant.API_END_POINT.GET_DEPARTMENT);
+  getAllDepartment(): Observable<any> {
+    return this.http.get<any>(environment.API_URL + constant.API_END_POINT.GET_DEPARTMENT);
   }
-  addDepartment(object:Department): Observable<apiResponse> {
-    return this.http.post<apiResponse>(environment.API_URL + constant.API_END_POINT.CREATE_DEPARTMENT, object);
-  }
-  updateDepartment(object: Department): Observable<apiResponse> {
-    return this.http.put<apiResponse>(environment.API_URL + constant.API_END_POINT.UPDATE_DEPARTMENT, object);
-  }
-  deleteDepartment(id:number): Observable<apiResponse> {
-    return this.http.delete<apiResponse>(environment.API_URL + constant.API_END_POINT.DELETE_DEPARTMENT+ id);
-  }
+  // addDepartment(object:Department): Observable<apiResponse> {
+  //   return this.http.post<apiResponse>(environment.API_URL + constant.API_END_POINT.CREATE_DEPARTMENT, object);
+  // }
+  // updateDepartment(object: Department): Observable<apiResponse> {
+  //   return this.http.put<apiResponse>(environment.API_URL + constant.API_END_POINT.UPDATE_DEPARTMENT, object);
+  // }
+  // deleteDepartment(id:number): Observable<apiResponse> {
+  //   return this.http.delete<apiResponse>(environment.API_URL + constant.API_END_POINT.DELETE_DEPARTMENT+ id);
+  // }
 
   
 }

@@ -1,51 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <div style="height: 80vh;">
-
-
-
-  
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>
-        <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>Fun Food </span>
-        <span class="menu-spacer"></span>
-        <div fxShow="true" fxHide.lt-md class="m-5">
-          <a routerLink="/home" mat-button>Home</a>
-          <a routerLink="/about" mat-button>About</a>
-          <a routerLink="/customerenquiry" mat-button>Contact</a>
-        
-        </div>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  
-    <mat-sidenav-container fxFlexFill>
-      <mat-sidenav #sidenav>
-        <mat-nav-list>
-          <a (click)="sidenav.toggle()" href="" mat-list-item></a>
-          <a routerLink="/home" mat-list-item>Home</a>
-          <a routerLink="/about" mat-list-item>About</a>
-          <a routerLink="/customerenquiry" mat-list-item>Contact Us</a>
-         
-        </mat-nav-list>
-      </mat-sidenav>
-      <div style="background-color: #FEEA00;"></div>
-      <mat-sidenav-content fxFlexFill>
-        <router-outlet></router-outlet>
-        <!-- <app-footer></app-footer> -->
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+<nav class="navbar navbar-expand-custom navbar-mainbg">
+  <a class="navbar-brand navbar-logo" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <div class="hori-selector">
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="employee"><i class="far fa-address-book"></i>Employee</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="tickets"><i class="far fa-clone"></i>Ticket</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="new-ticket"><i class="far fa-calendar-alt"></i>New-ticket</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="department"><i class="far fa-calendar-alt"></i>Department</a>
+      </li>
+     
+    </ul>
   </div>
-</body>
-</html>
-
-
-
+</nav>

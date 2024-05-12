@@ -5,16 +5,14 @@ export interface apiResponse {
 }
 
 export class Department {
-    deptId: number
-    deptName: string
-    deptHeadEmpId: number
-    createdDate: Date
+   
+    departmentName: string
+    departmentHead: string
+   
 
     constructor(){
-        this.createdDate = new Date();
-        this.deptId= 0;
-        this.deptName="";
-        this.deptHeadEmpId = 0;
+        this.departmentName = ""
+        this.departmentHead = ""
     }
 }
 
@@ -28,6 +26,20 @@ export class Login {
      this.password = ""
     }
 }
+
+export class EmployeeModel {
+    employeeName : string
+    contactNo : string
+    emailId : string
+    gender : string
+     constructor(){
+      this.emailId = "",
+      this.employeeName = ""
+      this.gender= ""
+      this.contactNo= ""
+     }
+ }
+
 
 
 

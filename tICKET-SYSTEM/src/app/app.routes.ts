@@ -5,12 +5,13 @@ import { DashboardComponent } from './component/pages/dashboard/dashboard.compon
 import { EmployeeComponent } from './component/pages/employee/employee.component';
 import { TicketsComponent } from './component/pages/tickets/tickets.component';
 import { NewTicketComponent } from './component/pages/new-ticket/new-ticket.component';
+import { DepartmentComponent } from './component/pages/department/department.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "login", pathMatch:"full"},
     {path : "login", component : LoginComponent},
-    {path : "", component: HeaderComponent, 
-    children :[
+    // {path : "", component: HeaderComponent, 
+    // children :[
         {
             path: "dashboard",
             component : DashboardComponent
@@ -26,7 +27,11 @@ export const routes: Routes = [
         {
             path: "new-ticket",
             component : NewTicketComponent
+        },
+        {
+            path: "department",
+            component :DepartmentComponent
         }
-    ]}
+    // ]}
    
 ];
