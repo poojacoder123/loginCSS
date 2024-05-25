@@ -23,17 +23,46 @@ router.get("/getAllDepartment", async(req,res,next)=>{
     }
 })
 
-router.get("/update/:id", async(req,res,next)=>{
-    const id = req.params._id;
-    try {
-     const  idData  = await Department.findById({_id : id});
-     await idData.updateOne();
-     return res.status(205).send("updated")
+router.get("/:id", async(req,res,next)=>{
+    const id = req.params.id;
+    try {  
+     const  idData  = await Department.findById({_id: id});
+       console.log(idData)
+     return res.json(idData);
 
     } catch (error) {
-        
+        res.status(500).json({message: error.message});
     }
 })
 
+
+router.patch("/update/:id", async(req,res,next)=>{  
+
+   try {
+    const id = req.params.id;
+    const department = await Department.findByIdAndUpdate(id, req.body);
+    console.log(department)
+    if(!department){
+        return res.status(400).json({message :"department not found"})
+    }
+     
+    return res.status(200).send("success true")
+   } catch (error) {
+    res.status(500).json({message: error.message});
+   }
+    
+})
+
+router.delete("/delete/:id", async(req,res,next)=>{
+try {
+    const id = req.params.id;
+    console.log(id)
+    const deleteDep = await Department.findByIdAndDelete(req.params.id);
+    console.log(deleteDep)
+     return res.send(deleteDep)
+} catch (error) {
+    res.status(500).json({message: error.message}); 
+}
+})
 
 module.exports = router

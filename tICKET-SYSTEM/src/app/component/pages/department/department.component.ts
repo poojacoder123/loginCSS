@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DepartmentService } from '../../../core/services/department.service';
-import { Department, EmployeeModel } from '../../../core/models/APIMODELS';
+import { Department, EmployeeModel, apiResponse } from '../../../core/models/APIMODELS';
 import { NAPipe } from '../../shared/pipe/na.pipe';
 import { EmployeeService } from '../../../core/services/employee.service';
 import { Observable } from 'rxjs';
@@ -18,6 +18,8 @@ export class DepartmentComponent implements OnInit {
   departmentList : Department[] = [];
   employeeList : any[]= [];
   departmentObj : Department = new Department();
+  getDepartmetbyId :Department [] |apiResponse= [];
+  editId :any;
   // employee$ : Observable<EmployeeModel> |undefined
 constructor(
   private departmentService : DepartmentService,
@@ -31,6 +33,7 @@ ngOnInit(): void {
  console.log(this.employeeList)
 //  this.employee$ = this.employeeService.getEmployee();
 //  console.log(this.employee$, "employee observable")
+
 }
 
 loadDepartment(){
@@ -38,6 +41,7 @@ loadDepartment(){
     console.log(res)
     this.departmentList = res;
   })
+
 }
 loadEmployee(){
   this.employeeService.getEmployee().subscribe((res)=>{
@@ -51,6 +55,30 @@ addDepartment(){
 this.departmentService.addDepartment(this.departmentObj).subscribe((res)=>{
   // console.log(res);
   alert("department added")
+  this.ngOnInit();
 })
+}
+editDeparment(obj:any){
+this.editId = obj._id;
+this.departmentObj = obj
+alert(this.editId);
+}
+editDep(){
+  if(this.editId ){
+    this.departmentService.updateDepartment(this.departmentObj,this.editId).subscribe((res)=>{
+      console.log(res);
+      alert("department updated")
+      this.ngOnInit();
+    })
+  }
+
+}
+deleteDeparment(obj:any){
+let id = obj;
+this.departmentService.deleteDepartment(id).subscribe((res)=>{
+  console.log("deleted");
+  this.loadDepartment();
+})
+
 }
 }

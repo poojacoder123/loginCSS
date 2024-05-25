@@ -18,12 +18,14 @@ export class DepartmentService {
   addDepartment(object:Department): Observable<apiResponse> {
     return this.http.post<apiResponse>(environment.API_URL + constant.API_END_POINT.CREATE_DEPARTMENT, object);
   }
-  // updateDepartment(object: Department): Observable<apiResponse> {
-  //   return this.http.put<apiResponse>(environment.API_URL + constant.API_END_POINT.UPDATE_DEPARTMENT, object);
-  // }
-  // deleteDepartment(id:number): Observable<apiResponse> {
-  //   return this.http.delete<apiResponse>(environment.API_URL + constant.API_END_POINT.DELETE_DEPARTMENT+ id);
-  // }
+  updateDepartment(object: Department, id: string): Observable<apiResponse> {
+    return this.http.put<apiResponse>(environment.API_URL + constant.API_END_POINT.EDIT_DEPARTMENT +id, object);
+  }
+  deleteDepartment(id:number): Observable<apiResponse> {
+    return this.http.delete<apiResponse>(environment.API_URL + constant.API_END_POINT.DELETE_DEPARTMENT+ id);
+  }
 
-  
+  getDepartmentById(id:number) : Observable<apiResponse>{
+    return this.http.get<apiResponse>(environment.API_URL +id);
+  }
 }

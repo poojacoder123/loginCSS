@@ -19,6 +19,10 @@ export class EmployeeService {
     return this.http.get<any>(environment.API_URL + constant.API_END_POINT.GET_EMPLOYEE);
   }
 
+  registerEmployee(object:EmployeeModel) : Observable<any>{
+    return  this.http.post<EmployeeModel>(environment.API_URL + constant.API_END_POINT.CREATE_EMPLOYEE, object);
+  }
+ 
 
 
 }
