@@ -7,6 +7,7 @@ const roleRoutes = require("./routes/RoleRouter")
 const userRouter = require("./routes/userRoutes");
 const TimeTrack = require("./routes/TimeTrackRoutes")
 const Department = require("./routes/department.router")
+const Ticket  = require("./routes/ticketRouter")
 
 require("dotenv").config;
 
@@ -28,6 +29,7 @@ app.use("/api/", userRouter);
 app.use("/api/timeTrack", TimeTrack);
 app.use("/api/timeTrack/", TimeTrack);
 app.use("/api", Department)
+app.use("/api/ticket", Ticket);
 
 
 app.listen(3000, ()=>{

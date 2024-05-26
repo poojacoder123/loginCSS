@@ -12,18 +12,31 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="employee"><i class="far fa-address-book"></i>Employee</a>
-      </li>
+      @if(roleAssigned =='super-admin'){
+        <li class="nav-item">
+          <a class="nav-link" routerLink="employee"><i class="far fa-address-book"></i>Employee</a>
+        </li>
+      }
+     
       <li class="nav-item">
         <a class="nav-link" routerLink="tickets"><i class="far fa-clone"></i>Ticket</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="new-ticket"><i class="far fa-calendar-alt"></i>New-ticket</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="department"><i class="far fa-calendar-alt"></i>Department</a>
-      </li>
+      @if(roleAssigned =='super-admin'){
+        <li class="nav-item">
+          <a class="nav-link" routerLink="department"><i class="far fa-calendar-alt"></i>Department</a>
+        </li>
+      }
+        @if(loggedData != ""){
+          <li class="nav-item" (click)="logout()">
+            <a class="nav-link" routerLink="new-ticket"><i class="far fa-calendar-alt" ></i>Logout</a>
+          </li>
+        }
+       
+      
+     
      
     </ul>
   </div>

@@ -24,15 +24,24 @@ const userschema = new mongoose.Schema({
         type: String,
         required: true, 
     },
+    roleAssign : {
+       type : String,
+       required: true,
+    },
+    department : {
+    type : String,
+    required: true,  
+    },
     role: {
         type:[Schema.Types.ObjectId],
         required: true, 
         ref: "Role"
     },
+   
     departmentId: {
         type:[Schema.Types.ObjectId],
-        //  required: true, 
-        ref: "Department"
+        required: true, 
+         ref: "Department"
     }
    
 },
@@ -46,11 +55,13 @@ module.exports = mongoose.model("user", userschema);
 // http://localhost:3000/api/register
 
 // {  
-//     "employeeName": "aNSHIKA AGRAWAL",
-//     "contactNo": "1234567890",
-//     "email" : "abc@gmail.com",
-//     "password" : "1234",
-//     "gender" : "female"
+//      "emailId" : "super10@gmail.com",
+  //  "password" : "super",
+  //  "roleAssign" : "super-admin",
+  //  "gender" : "female",
+  //  "employeeName" : "Test12 Agrawal",
+  //  "contactNo" : "987678987",
+  //  "department" : "Software Development"
  
   
 //  }

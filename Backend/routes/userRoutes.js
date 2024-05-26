@@ -8,8 +8,10 @@ const departmentModel = require("../models/department.model");
 
 
  router.post("/",async(req,res,next)=>{
-   const roleFind = await Role.find({roles: "super-admin"});
-   const deptFind = await departmentModel.find({departmentName : "Software Testing"})
+   let roleAssignment = req.body.roleAssign;
+   let depAssignment = req.body.department;
+   const roleFind = await Role.find({roles: roleAssignment});
+   const deptFind = await departmentModel.find({departmentName : depAssignment})
    console.log(roleFind)
    var salt =await bcrypt.genSaltSync(10);
    var hash =await bcrypt.hashSync(req.body.password, salt);
@@ -19,6 +21,8 @@ const departmentModel = require("../models/department.model");
     contactNo: req.body.contactNo,
        emailId:req.body.emailId,
        password:hash,
+       roleAssign : req.body.roleAssign,
+       department : req.body.department,
        role:roleFind,
        departmentId : deptFind
     
@@ -46,8 +50,8 @@ const departmentModel = require("../models/department.model");
 console.log(token)
 
   return  res.cookie("access_token", token, {httpOnly: true}).status(200).
-    json({message : "login successful",
-          user : user
+    json({
+           user
     })
       } catch (error) {
          return res.send(error);   

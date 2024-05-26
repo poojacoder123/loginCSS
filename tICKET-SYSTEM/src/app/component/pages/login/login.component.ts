@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Login, apiResponse } from '../../../core/models/APIMODELS';
 import { FormsModule } from '@angular/forms';
 import { EmployeeService } from '../../../core/services/employee.service';
@@ -13,11 +13,13 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 constructor(private employeeservice : EmployeeService,
   private router : Router
 ){
 
+}
+ngOnInit() {
 }
   loginObj : Login = new Login();
 
@@ -30,8 +32,8 @@ constructor(private employeeservice : EmployeeService,
       localStorage.setItem("ticketdata", JSON.stringify(res));
       localStorage.setItem("userData", JSON.stringify(res));
       this.router.navigate(["/dashboard"])
-  // }
-  // console.log(res)
+      this.ngOnInit();
+ 
   } )
   }
 }
