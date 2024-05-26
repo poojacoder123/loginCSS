@@ -31,7 +31,7 @@ const userschema = new mongoose.Schema({
     },
     departmentId: {
         type:[Schema.Types.ObjectId],
-        // required: true, 
+        //  required: true, 
         ref: "Department"
     }
    

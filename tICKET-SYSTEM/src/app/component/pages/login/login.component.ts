@@ -22,11 +22,13 @@ constructor(private employeeservice : EmployeeService,
   loginObj : Login = new Login();
 
   login(){
+    console.log(this.loginObj)
   this.employeeservice.login(this.loginObj).subscribe((res:any)=>{
     console.log(res)
     // if(res.result){
       alert("login success");
       localStorage.setItem("ticketdata", JSON.stringify(res));
+      localStorage.setItem("userData", JSON.stringify(res));
       this.router.navigate(["/dashboard"])
   // }
   // console.log(res)

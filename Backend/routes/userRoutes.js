@@ -3,10 +3,12 @@ const router = express.Router();
 const User = require("../models/AlienModel")
 const Role = require("../models/RoleModel");
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const departmentModel = require("../models/department.model");
 
+
  router.post("/",async(req,res,next)=>{
-   const roleFind = await Role.find({roles: "Employee"});
+   const roleFind = await Role.find({roles: "super-admin"});
    const deptFind = await departmentModel.find({departmentName : "Software Testing"})
    console.log(roleFind)
    var salt =await bcrypt.genSaltSync(10);
@@ -28,18 +30,27 @@ const departmentModel = require("../models/department.model");
 
    router.post("/login", async(req,res,next)=>{
       try {
-         const user = await User.findOne({email: req.body.email});
+   
+      const user = await User.findOne({"emailId": req.body.emailId})
+      .populate( "role")
+      console.log(user)
          if(!user){
             return res.status(400).send("user not found")
          }
        
         const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password)
-      if(!isPasswordCorrect){
-         return res.status(400).send("Password Incorrect")
-      }
-      return res.json(user);
+      // if(!isPasswordCorrect){
+      //    return res.status(400).send("Password Incorrect")
+      // }
+      const token = jwt.sign({_id: user._id}, "secret");
+console.log(token)
+
+  return  res.cookie("access_token", token, {httpOnly: true}).status(200).
+    json({message : "login successful",
+          user : user
+    })
       } catch (error) {
-         
+         return res.send(error);   
       }
    })
 
